@@ -8,9 +8,17 @@ const app = express();
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 
-// Student Model
+// Model
 let projectSchema = require("../models/Project");
 let userSchema = require("../Models/User");
+
+// postman creating a new project
+// {
+//   "name": "test1",
+//   "deadline" : "2022-01-01",
+//   "document": "testdoc",
+//   "userId" : "62019658b1182313e6f488b3"
+// }
 
 // CREATE new project
 router.route("/create-project").post((req, res, next) => {
@@ -24,6 +32,11 @@ router.route("/create-project").post((req, res, next) => {
     }
   });
 });
+
+// create a new user
+// {
+//   "name": "vidurath"
+// }
 
 // CREATE new user
 router.route("/create-user").post((req, res, next) => {
