@@ -102,7 +102,7 @@ router.route("/update-project/:id").put((req, res, next) => {
   );
 });
 
-// Delete Student
+// Delete project
 router.route("/delete-project/:id").delete((req, res, next) => {
   projectSchema.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
