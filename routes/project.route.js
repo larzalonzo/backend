@@ -2,15 +2,14 @@ let mongoose = require("mongoose"),
   express = require("express"),
   router = express.Router();
 
-//CREATE EXPRESS APP
-const app = express();
-
-const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
-
 // Model
 let projectSchema = require("../models/Project");
 let userSchema = require("../Models/User");
+
+const { upload, uploadFile } = require("../controllers/userController");
+
+// upload document route
+router.post("/upload", uploadFile, upload);
 
 // postman creating a new project
 // {
@@ -28,7 +27,6 @@ router.route("/create-project").post((req, res, next) => {
     } else {
       console.log(data);
       res.json(data);
-      console.log(req.file);
     }
   });
 });
